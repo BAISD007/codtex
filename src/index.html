@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>codtex - 公式识别</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- 顶部：渲染预览 -->
+    <div class="panel panel-preview">
+      <div class="panel-header">
+        <span class="panel-title">渲染预览</span>
+        <button id="copy-btn" class="btn btn-small">复制 LaTeX</button>
+      </div>
+      <div class="panel-content" id="preview">
+        <div class="placeholder">识别结果将在这里显示</div>
+      </div>
+    </div>
+
+    <!-- 中间：LaTeX 源码 -->
+    <div class="panel panel-source">
+      <div class="panel-header">
+        <span class="panel-title">LaTeX 源码</span>
+        <button id="save-btn" class="btn btn-small">保存</button>
+      </div>
+      <div class="panel-content">
+        <textarea id="source" placeholder="识别后的 LaTeX 代码..."></textarea>
+      </div>
+    </div>
+
+    <!-- 底部：原图 + 历史 -->
+    <div class="panel panel-image">
+      <div class="panel-header">
+        <span class="panel-title">原图</span>
+        <div class="header-actions">
+          <button id="paste-btn" class="btn btn-small">粘贴</button>
+          <button id="select-btn" class="btn btn-small">选择图片</button>
+          <button id="recognize-btn" class="btn btn-primary">识别</button>
+        </div>
+      </div>
+      <div class="panel-content image-content">
+        <div class="image-dropzone" id="dropzone">
+          <div class="placeholder">拖拽图片到此处<br>或 Ctrl+V 粘贴</div>
+          <img id="image-preview" style="display: none;" alt="原图">
+        </div>
+        <div class="history-bar" id="history-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
